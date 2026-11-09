@@ -1,7 +1,7 @@
 /******************************************************************************/
 /* SourceIP.io source for WISE
  *
- * Adds a "SourceIP Provider" field (sourceip.provider) to sessions whose IP is public, so it can be
+ * Adds a "SourceIP.io Provider" field (sourceip.provider) to sessions whose IP is public, so it can be
  * shown as a column next to Dst ASN. Install into /opt/arkime/wiseService/ (see README.md).
  * Configured by the [sourceip] section of wiseService.ini.
  *
@@ -59,7 +59,7 @@ class SourceIPSource extends WISESource {
     this.timer = undefined;
 
     this.theField = this.api.addField(
-      `field:${this.field};db:${this.field};kind:termfield;count:true;friendly:SourceIP Provider;` +
+      `field:${this.field};db:${this.field};kind:termfield;count:true;friendly:SourceIP.io Provider;` +
       'help:Operator(s) of the public IP according to sourceip.io');
     this.api.addSource(section, this, ['ip']);
     console.log(this.section, this.keyed
