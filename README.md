@@ -10,8 +10,6 @@ how they use it (`self_operated`, `shared_platform` or `general_use`), which is 
 
 The two parts are independent, so you can install either one. Tested with Arkime 6.8.0.
 
-This is a community project, not affiliated with or endorsed by SourceIP.io or the Arkime project.
-
 ## Privacy
 
 With the WISE source enabled, **every public IP your capture sees is sent to sourceip.io** (results are cached for a day).
@@ -112,25 +110,6 @@ In the viewer, add the **SourceIP Provider** column from the Sessions column pic
 sessions that have it:
 
     sourceip.provider == EXISTS!
-
-### Improving coverage
-
-Capture only asks WISE when it saves a session. A full save waits for the answer, but the periodic mid-save of a still-open
-session does not, so it only has the field when capture's own WISE cache already holds the answer. With the defaults,
-`tcpSaveTimeout` and `tcpTimeout` are both 480 seconds, and sessions that capture does not see close can take the mid-save path.
-These settings reduce that:
-
-```ini
-[default]
-tcpSaveTimeout=1800
-wiseCacheSecs=300
-```
-
-`tcpSaveTimeout=1800` means only sessions still active after 30 minutes are mid-saved. `wiseCacheSecs` also controls how long
-capture remembers an empty answer, so a low value lets failed lookups recover sooner.
-
-The field belongs to the session, not to one side of it. Because non-public IPs are skipped, it usually describes the external
-side.
 
 ## Configure the Cont3xt integration
 
