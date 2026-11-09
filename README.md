@@ -106,7 +106,7 @@ Restart WISE first, wait until it answers, and then restart capture:
 **Start order matters.** If capture starts while WISE is down, it keeps running but no session gets the field until capture is
 restarted. Look for `Couldn't connect to WISE` in the capture log. This can also happen after a host reboot.
 
-In the viewer, add the **SourceIP Provider** column from the Sessions column picker. Only new sessions get the field. To find
+In the viewer, add the **SourceIP.io Provider** column from the Sessions column picker. Only new sessions get the field. To find
 sessions that have it:
 
     sourceip.provider == EXISTS!
